@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PokedexView: View {
     
     @State var pokedex = [Pokemon]()
     @State var baseURL = "https://pokeapi.co/api/v2/pokemon/"
     @State var pokeIndexStart = 1
-    @State var pokeIndexEnd = 20
+    @State var pokeIndexEnd = 100
     @State var selectedPokemon: Pokemon?
-    @State var showingPokemonDetailView = false
     @State var searchTerm = ""
     
     //Pokedex Networking function
@@ -38,9 +38,10 @@ struct PokedexView: View {
             }.resume()
         }
     }
+    
     //Search Networking function
     func loadSearchData() {
-        guard let url = URL(string: "\(baseURL)\(searchTerm)/") else {
+        guard let url = URL(string: "\(baseURL)\(searchTerm.lowercased())/") else {
             print("invalid url")
             return
         }
@@ -74,7 +75,6 @@ struct PokedexView: View {
                 }
                 Button(action: {
                     loadSearchData()
-                    self.showingPokemonDetailView.toggle()
                 }, label: {
                     Image(systemName: "magnifyingglass.circle.fill")
                         .font(.system(size: 30, weight: .semibold, design: .default))
@@ -90,9 +90,9 @@ struct PokedexView: View {
             List(pokedex.sorted( by: { $1.id > $0.id }), id: \.id) { pokemon in
                 HStack {
                     Text(pokemon.name.capitalized)
-                    Image(pokemon.sprites.frontDefault)
+                    Spacer()
+                    WebImage(url: URL(string:pokemon.sprites.frontDefault))
                     Button(action: {
-                        self.showingPokemonDetailView.toggle()
                         selectedPokemon = pokemon
                     }, label: {
                         Image(systemName: "chevron.right")

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PokemonDetailView: View {
     
@@ -20,9 +21,8 @@ struct PokemonDetailView: View {
         }
         .padding()
         
-        RoundedRectangle(cornerRadius: 5)
-            .foregroundColor(.gray)
-            .padding(.horizontal)
+        WebImage(url: URL(string:pokemon.sprites.frontDefault))
+            
         
         HStack {
             Text("Types: ")

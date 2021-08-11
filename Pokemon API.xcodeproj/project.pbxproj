@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		7142827826C3CBF1001C538B /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142827726C3CBF1001C538B /* PokemonModel.swift */; };
 		7142827A26C3CC2F001C538B /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142827926C3CC2E001C538B /* PokemonDetailView.swift */; };
 		7142827E26C3F10F001C538B /* TextWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142827D26C3F10F001C538B /* TextWrapper.swift */; };
+		7142828326C43E25001C538B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7142828226C43E25001C538B /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7142828326C43E25001C538B /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +173,9 @@
 			dependencies = (
 			);
 			name = "Pokemon API";
+			packageProductDependencies = (
+				7142828226C43E25001C538B /* SDWebImageSwiftUI */,
+			);
 			productName = "Pokemon API";
 			productReference = 7142824926C3CB07001C538B /* Pokemon API.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 7142824026C3CB07001C538B;
+			packageReferences = (
+				7142828126C43E25001C538B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 7142824A26C3CB07001C538B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -608,6 +616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7142828126C43E25001C538B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7142828226C43E25001C538B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7142828126C43E25001C538B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7142824126C3CB07001C538B /* Project object */;
 }
