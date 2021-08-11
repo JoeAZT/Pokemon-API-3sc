@@ -14,7 +14,7 @@ struct PokedexView: View {
     @State var pokeIndexStart = 1
     @State var pokeIndexEnd = 20
     @State var selectedPokemon: Pokemon?
-    @State var showingPokemonView = false
+    @State var showingPokemonDetailView = false
     
     func loadData() {
         pokedex.removeAll()
@@ -40,12 +40,16 @@ struct PokedexView: View {
     
     var body: some View {
         VStack {
+            
+            
+            
             List(pokedex.sorted( by: { $1.id > $0.id }), id: \.id) { pokemon in
-                VStack(alignment: .leading){
-                    Text(pokemon.name)
+                HStack
+                {
+                    Text(pokemon.name.capitalized)
                     Image(pokemon.sprites.frontDefault)
                     Button(action: {
-                        self.showingPokemonView.toggle()
+                        self.showingPokemonDetailView.toggle()
                         selectedPokemon = pokemon
                     }, label: {
                         Image(systemName: "chevron.right")

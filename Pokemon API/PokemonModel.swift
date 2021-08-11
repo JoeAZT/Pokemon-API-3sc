@@ -34,21 +34,20 @@ class Sprites: Codable {
 }
 
 struct Species: Codable {
-    let name: String
+    let name: String?
     let url: String
 }
 
 
 struct Stat: Codable {
-    let baseStat, effort: Int
+    let baseStat: Int
     let stat: Species
 
     enum CodingKeys: String, CodingKey {
         case baseStat = "base_stat"
-        case effort, stat
+        case stat
     }
 }
-
 
 struct TypeElement: Codable {
     let slot: Int
