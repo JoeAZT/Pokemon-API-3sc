@@ -73,9 +73,7 @@ struct PokedexView: View {
                     }
                 }
                 Button(action: {
-                    
-                    //selectedPokemon = searchTerm
-                    
+                    loadSearchData()
                     self.showingPokemonDetailView.toggle()
                 }, label: {
                     Image(systemName: "magnifyingglass.circle.fill")
