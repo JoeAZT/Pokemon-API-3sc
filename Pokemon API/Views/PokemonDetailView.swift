@@ -15,22 +15,28 @@ struct PokemonDetailView: View {
     var body: some View {
         HStack {
         Text("\(pokemon.name.capitalized)")
+            .font(.title)
             .bold()
             Spacer()
         Text("ID: \(pokemon.id)")
+            .font(.title)
         }
         .padding()
         
         WebImage(url: URL(string:pokemon.sprites.frontDefault))
-            
-        
+            .resizable()
+            .frame(width: 200, height: 200)
         HStack {
             Text("Types: ")
-            Text(String("\(pokemon.types[0].type.name!.capitalized)"))
+            Text(String("\(pokemon.types[0].type.name!.rawValue.capitalized)"))
+                .foregroundColor(colorType(pokemonType: pokemon.types[0].type.name!))
             if pokemon.types.count > 1 {
-                Text(String("\(pokemon.types[1].type.name!.capitalized)"))
+                Text(String("\(pokemon.types[1].type.name!.rawValue.capitalized)"))
+                    .foregroundColor(colorType(pokemonType: pokemon.types[1].type.name!))
+
             }
         }
+        
         HStack {
             Text("Height: \(pokemon.height)")
             Text("Weight: \(pokemon.weight)")

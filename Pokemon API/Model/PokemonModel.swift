@@ -12,7 +12,6 @@ struct Pokemon: Codable, Identifiable {
     let id: Int
     let name: String
     let sprites: Sprites
-    let species: Species
     let stats: [Stat]
     let types: [TypeElement]
     let weight: Int
@@ -33,15 +32,17 @@ class Sprites: Codable {
     }
 }
 
-struct Species: Codable {
+struct StatNames: Codable {
     let name: String?
-    let url: String
 }
 
+struct TypeName: Codable {
+    let name: PokemonType?
+}
 
 struct Stat: Codable {
     let baseStat: Int
-    let stat: Species
+    let stat: StatNames
 
     enum CodingKeys: String, CodingKey {
         case baseStat = "base_stat"
@@ -51,5 +52,5 @@ struct Stat: Codable {
 
 struct TypeElement: Codable {
     let slot: Int
-    let type: Species
+    let type: TypeName
 }
