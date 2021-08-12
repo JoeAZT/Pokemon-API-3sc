@@ -74,15 +74,12 @@ struct PokemonDetailView: View {
             HStack{
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text(String("HP: \(pokemon.stats[0].baseStat)"))
-                    Text(String("Attack: \(pokemon.stats[1].baseStat)"))
-                    Text(String("Defence: \(pokemon.stats[2].baseStat)"))
-                }
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text(String("Speed: \(pokemon.stats[5].baseStat)"))
-                    Text(String("Sp.Atk: \(pokemon.stats[3].baseStat)"))
-                    Text(String("Sp.Def: \(pokemon.stats[4].baseStat)"))
+                    StatsView(pokemonStat: pokemon.stats[0])
+                    StatsView(pokemonStat: pokemon.stats[1])
+                    StatsView(pokemonStat: pokemon.stats[2])
+                    StatsView(pokemonStat: pokemon.stats[3])
+                    StatsView(pokemonStat: pokemon.stats[4])
+                    StatsView(pokemonStat: pokemon.stats[5])
                 }
                 Spacer()
             }
