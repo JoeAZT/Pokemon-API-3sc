@@ -83,7 +83,6 @@ struct PokemonDetailView: View {
                 }
                 Spacer()
             }
-            .font(.title2)
             .padding()
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)

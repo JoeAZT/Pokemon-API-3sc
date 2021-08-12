@@ -15,12 +15,16 @@ struct StatsView: View {
             VStack {
                 Text("\(pokemonStat.stat.name?.capitalized ?? "no value"): \(pokemonStat.baseStat)")
             }
+            .font(.system(size: 15))
+            
             Spacer()
-            VStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(height: 10)
-                }
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 5)
+                    .frame(width: 100, height: 10)
+                    .opacity(0.2)
+                RoundedRectangle(cornerRadius: 5)
+                    .foregroundColor(.black.opacity(0.6))
+                    .frame(width: CGFloat(pokemonStat.baseStat) / 1.5, height: 10)
             }
         }
     }
