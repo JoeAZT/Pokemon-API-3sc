@@ -13,7 +13,7 @@ struct PokedexView: View {
     
     var body: some View {
         VStack {
-            //Search bar and button
+            //Search bar
             HStack {
                 ZStack(alignment: .leading) {
                     TextViewWrapper(text: $viewModel.searchTerm)

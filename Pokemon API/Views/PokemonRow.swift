@@ -16,9 +16,14 @@ struct PokemonRow: View {
     var body: some View {
         
         HStack {
-            Text(pokemon.name.capitalized)
+            VStack(alignment: .leading) {
+                Text(pokemon.name.capitalized)
+                    .bold()
+                Text("ID: \(pokemon.id)")
+            }
             Spacer()
-            WebImage(url: URL(string:pokemon.sprites.frontDefault))
+            WebImage(url: URL(
+                        string:pokemon.sprites.frontDefault))
             Button(action: {
                 onTap()
             }, label: {

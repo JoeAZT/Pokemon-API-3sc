@@ -13,7 +13,7 @@ struct PokemonDetailView: View {
     let pokemon: Pokemon
     
     var body: some View {
-        VStack {
+        //Name and ID
             HStack {
                 Text("\(pokemon.name.capitalized)")
                     .bold()
@@ -22,7 +22,7 @@ struct PokemonDetailView: View {
             }
             .font(.title)
             .padding()
-            
+        //Image
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorType(pokemonType: pokemon.types[0].type.name!)).opacity(0.7)
@@ -32,41 +32,64 @@ struct PokemonDetailView: View {
                     .frame(width: 200, height: 200)
             }
             
+        //Types
             HStack {
+                Spacer()
                 Text("Types: ")
                 Text(String("\(pokemon.types[0].type.name!.rawValue.capitalized)"))
-                    .foregroundColor(colorType(pokemonType: pokemon.types[0].type.name!))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 5)
+                    .background(colorType(pokemonType: pokemon.types[0].type.name!))
+                    .cornerRadius(4)
                 if pokemon.types.count > 1 {
                     Text(String("\(pokemon.types[1].type.name!.rawValue.capitalized)"))
-                        .foregroundColor(colorType(pokemonType: pokemon.types[1].type.name!))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 5)
+                        .background(colorType(pokemonType: pokemon.types[1].type.name!))
+                        .cornerRadius(4)
                 }
-            }
-            .font(.title2)
-            
-            HStack {
-                Text("Height: \(pokemon.height)")
-                Text("Weight: \(pokemon.weight)")
-            }
-            .font(.title2)
-            
-            HStack{
-                VStack(alignment: .leading) {
-                    Text(String("HP: \(pokemon.stats[0].baseStat)"))
-                    Text(String("Attack: \(pokemon.stats[1].baseStat)"))
-                    Text(String("Defence: \(pokemon.stats[2].baseStat)"))
-                }
-                .padding(.horizontal, 10)
-                VStack(alignment: .leading) {
-                    Text(String("Speed: \(pokemon.stats[5].baseStat)"))
-                    Text(String("Sp.Atk: \(pokemon.stats[3].baseStat)"))
-                    Text(String("Sp.Def: \(pokemon.stats[4].baseStat)"))
-                }
-                .padding(.horizontal, 10)
+                Spacer()
             }
             .font(.title2)
             .padding()
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
-        }
+            .padding(.horizontal)
+
+        //Non-combat stats
+            HStack {
+                Spacer()
+                Text("Height: \(pokemon.height)")
+                Spacer()
+                Text("Weight: \(pokemon.weight)")
+                Spacer()
+            }
+            .font(.title2)
+            .padding()
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(10)
+            .padding(.horizontal)
+        
+        //Battle stats
+            HStack{
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text(String("HP: \(pokemon.stats[0].baseStat)"))
+                    Text(String("Attack: \(pokemon.stats[1].baseStat)"))
+                    Text(String("Defence: \(pokemon.stats[2].baseStat)"))
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text(String("Speed: \(pokemon.stats[5].baseStat)"))
+                    Text(String("Sp.Atk: \(pokemon.stats[3].baseStat)"))
+                    Text(String("Sp.Def: \(pokemon.stats[4].baseStat)"))
+                }
+                Spacer()
+            }
+            .font(.title2)
+            .padding()
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(10)
+            .padding(.horizontal)
     }
 }
