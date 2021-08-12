@@ -24,6 +24,7 @@ struct PokemonRow: View {
             Spacer()
             WebImage(url: URL(
                         string:pokemon.sprites.frontDefault))
+                .frame(width: 80, height: 80)
             Button(action: {
                 onTap()
             }, label: {
