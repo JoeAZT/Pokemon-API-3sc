@@ -57,18 +57,7 @@ struct PokemonDetailView: View {
             .padding(.horizontal)
 
         //Non-combat stats
-            HStack {
-                Spacer()
-                Text("Height: \(pokemon.height)")
-                Spacer()
-                Text("Weight: \(pokemon.weight)")
-                Spacer()
-            }
-            .font(.title2)
-            .padding()
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(10)
-            .padding(.horizontal)
+            NonCombatStats(pokemon: pokemon)
         
         //Battle stats
             HStack{
