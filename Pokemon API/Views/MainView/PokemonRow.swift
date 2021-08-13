@@ -19,7 +19,7 @@ struct PokemonRow: View {
             VStack(alignment: .leading) {
                 Text(pokemon.name.capitalized)
                     .bold()
-                Text("ID: \(pokemon.id)")
+                Text("#" + String(format: "%03d", pokemon.id))
             }
             Spacer()
             WebImage(url: URL(

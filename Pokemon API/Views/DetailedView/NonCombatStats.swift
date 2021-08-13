@@ -16,17 +16,21 @@ struct NonCombatStats: View {
             Spacer()
             VStack {
                 Text("Height:")
-                    .font(.system(size: 15))
+                    .font(.system(size: 12))
+                    .opacity(0.6)
                 HStack {
                     Text(String(format: "%.1f", (Double(pokemon.height) / 10)))
                     Text("m")
                 }
+                .font(.system(size: 25, weight: .semibold, design: .default))
             }
             Spacer()
             VStack {
                 Text("Weight:")
-                    .font(.system(size: 15))
+                    .font(.system(size: 12))
+                    .opacity(0.6)
                 Text("\(pokemon.weight) Kg")
+                    .font(.system(size: 25, weight: .semibold, design: .default))
             }
             Spacer()
         }

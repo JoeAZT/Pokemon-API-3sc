@@ -18,7 +18,7 @@ struct PokemonDetailView: View {
                 Text("\(pokemon.name.capitalized)")
                     .bold()
                 Spacer()
-                Text("ID: \(pokemon.id)")
+                Text("#" + String(format: "%03d", pokemon.id))
             }
             .font(.title)
             .padding()
@@ -62,7 +62,7 @@ struct PokemonDetailView: View {
         //Battle stats
             HStack{
                 Spacer()
-                VStack(alignment: .leading) {
+                ScrollView {
                     StatsView(pokemonStat: pokemon.stats[0])
                     StatsView(pokemonStat: pokemon.stats[1])
                     StatsView(pokemonStat: pokemon.stats[2])
